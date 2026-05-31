@@ -1,0 +1,865 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Comfort Clarity Advisors | NJ HVAC Advocate for Homeowners</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #1a2a3a;
+    --navy-deep: #0f1d2b;
+    --slate: #2c3e50;
+    --gold: #c9a84c;
+    --gold-light: #e8c97a;
+    --cream: #f8f4ed;
+    --white: #ffffff;
+    --muted: #6b7c8d;
+    --light-bg: #f2ede4;
+    --border: #ddd5c5;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Lato', sans-serif;
+    background: var(--cream);
+    color: var(--navy);
+    overflow-x: hidden;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    background: rgba(15,29,43,0.97);
+    backdrop-filter: blur(8px);
+    padding: 0 24px;
+    height: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid rgba(201,168,76,0.2);
+  }
+
+  .nav-brand {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.1;
+  }
+
+  .nav-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 15px;
+    color: var(--white);
+    letter-spacing: 0.5px;
+  }
+
+  .nav-tag {
+    font-size: 9px;
+    letter-spacing: 2.5px;
+    color: var(--gold);
+    text-transform: uppercase;
+  }
+
+  .nav-cta {
+    background: var(--gold);
+    color: var(--navy-deep);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 9px 18px;
+    border-radius: 3px;
+    text-decoration: none;
+    transition: background 0.2s;
+  }
+
+  .nav-cta:hover { background: var(--gold-light); }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    background: var(--navy-deep);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 100px 24px 60px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -200px; right: -200px;
+    width: 600px; height: 600px;
+    background: radial-gradient(circle, rgba(201,168,76,0.08) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .hero::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  }
+
+  .hero-eyebrow {
+    font-size: 10px;
+    letter-spacing: 3.5px;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    animation: fadeUp 0.6s ease both;
+  }
+
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(36px, 8vw, 62px);
+    color: var(--white);
+    line-height: 1.1;
+    margin-bottom: 24px;
+    animation: fadeUp 0.6s 0.1s ease both;
+  }
+
+  .hero h1 em {
+    font-style: italic;
+    color: var(--gold-light);
+  }
+
+  .hero-sub {
+    font-size: 16px;
+    color: #94a8bb;
+    line-height: 1.7;
+    max-width: 480px;
+    margin-bottom: 36px;
+    font-weight: 300;
+    animation: fadeUp 0.6s 0.2s ease both;
+  }
+
+  .hero-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    animation: fadeUp 0.6s 0.3s ease both;
+  }
+
+  .btn-primary {
+    display: inline-block;
+    background: var(--gold);
+    color: var(--navy-deep);
+    font-weight: 700;
+    font-size: 13px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    padding: 16px 28px;
+    border-radius: 3px;
+    text-decoration: none;
+    text-align: center;
+    transition: all 0.2s;
+  }
+
+  .btn-primary:hover { background: var(--gold-light); transform: translateY(-1px); }
+
+  .btn-secondary {
+    display: inline-block;
+    background: transparent;
+    color: var(--white);
+    font-size: 13px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 15px 28px;
+    border-radius: 3px;
+    border: 1px solid rgba(255,255,255,0.2);
+    text-decoration: none;
+    text-align: center;
+    transition: all 0.2s;
+  }
+
+  .btn-secondary:hover { border-color: var(--gold); color: var(--gold); }
+
+  .hero-trust {
+    margin-top: 48px;
+    padding-top: 28px;
+    border-top: 1px solid rgba(255,255,255,0.08);
+    display: flex;
+    gap: 28px;
+    flex-wrap: wrap;
+    animation: fadeUp 0.6s 0.4s ease both;
+  }
+
+  .trust-item {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .trust-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 26px;
+    color: var(--gold);
+    line-height: 1;
+  }
+
+  .trust-label {
+    font-size: 11px;
+    color: #6a7f92;
+    margin-top: 4px;
+    letter-spacing: 0.5px;
+  }
+
+  /* PROBLEM */
+  .problem {
+    background: var(--white);
+    padding: 64px 24px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .section-label {
+    font-size: 10px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 16px;
+  }
+
+  .problem h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(26px, 5vw, 38px);
+    line-height: 1.2;
+    margin-bottom: 20px;
+    color: var(--navy);
+  }
+
+  .problem p {
+    font-size: 15px;
+    color: var(--muted);
+    line-height: 1.8;
+    margin-bottom: 14px;
+    font-weight: 300;
+  }
+
+  .problem-highlight {
+    background: var(--cream);
+    border-left: 3px solid var(--gold);
+    padding: 16px 20px;
+    margin: 24px 0;
+    border-radius: 0 4px 4px 0;
+  }
+
+  .problem-highlight p {
+    font-size: 15px;
+    color: var(--navy);
+    font-style: italic;
+    font-weight: 400;
+    margin: 0;
+  }
+
+  /* HOW IT WORKS */
+  .how {
+    background: var(--cream);
+    padding: 64px 24px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .how h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(26px, 5vw, 38px);
+    margin-bottom: 36px;
+    color: var(--navy);
+  }
+
+  .steps { display: flex; flex-direction: column; gap: 0; }
+
+  .step {
+    display: flex;
+    gap: 20px;
+    padding: 24px 0;
+    border-bottom: 1px solid var(--border);
+    align-items: flex-start;
+  }
+
+  .step:last-child { border-bottom: none; }
+
+  .step-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 36px;
+    color: var(--gold);
+    line-height: 1;
+    width: 44px;
+    flex-shrink: 0;
+  }
+
+  .step-body h3 {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 6px;
+  }
+
+  .step-body p {
+    font-size: 14px;
+    color: var(--muted);
+    line-height: 1.7;
+    font-weight: 300;
+  }
+
+  /* SERVICES */
+  .services {
+    background: var(--navy-deep);
+    padding: 64px 24px;
+    position: relative;
+  }
+
+  .services::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  }
+
+  .services .section-label { color: var(--gold); }
+
+  .services h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(26px, 5vw, 38px);
+    color: var(--white);
+    margin-bottom: 32px;
+  }
+
+  .service-cards { display: flex; flex-direction: column; gap: 16px; }
+
+  .service-card {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(201,168,76,0.2);
+    border-radius: 6px;
+    padding: 24px;
+    transition: border-color 0.2s, background 0.2s;
+  }
+
+  .service-card:hover {
+    border-color: var(--gold);
+    background: rgba(201,168,76,0.05);
+  }
+
+  .card-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 12px;
+  }
+
+  .card-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 18px;
+    color: var(--white);
+  }
+
+  .card-price {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--gold);
+    text-align: right;
+    line-height: 1.3;
+  }
+
+  .card-desc {
+    font-size: 13px;
+    color: #7a92a8;
+    line-height: 1.7;
+    font-weight: 300;
+    margin-bottom: 14px;
+  }
+
+  .card-includes { list-style: none; display: flex; flex-direction: column; gap: 6px; }
+
+  .card-includes li {
+    font-size: 12px;
+    color: #8fa5b8;
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .card-includes li::before {
+    content: '✓';
+    color: var(--gold);
+    flex-shrink: 0;
+    font-weight: 700;
+  }
+
+  .card-cta {
+    display: block;
+    margin-top: 20px;
+    background: transparent;
+    border: 1px solid rgba(201,168,76,0.4);
+    color: var(--gold);
+    text-align: center;
+    padding: 11px;
+    border-radius: 3px;
+    font-size: 12px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: all 0.2s;
+  }
+
+  .card-cta:hover { background: var(--gold); color: var(--navy-deep); }
+
+  /* WHY US */
+  .why {
+    background: var(--white);
+    padding: 64px 24px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .why h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(26px, 5vw, 38px);
+    margin-bottom: 32px;
+    color: var(--navy);
+  }
+
+  .credentials { display: flex; flex-direction: column; gap: 16px; }
+
+  .cred {
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+    padding: 20px;
+    background: var(--cream);
+    border-radius: 6px;
+    border: 1px solid var(--border);
+  }
+
+  .cred-icon {
+    width: 40px; height: 40px;
+    background: var(--navy-deep);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    flex-shrink: 0;
+  }
+
+  .cred-body h4 { font-size: 14px; font-weight: 700; color: var(--navy); margin-bottom: 4px; }
+  .cred-body p { font-size: 13px; color: var(--muted); line-height: 1.6; font-weight: 300; }
+
+  /* TESTIMONIAL */
+  .testimonial {
+    background: var(--light-bg);
+    padding: 56px 24px;
+    border-bottom: 1px solid var(--border);
+    border-top: 1px solid var(--border);
+  }
+
+  .quote-mark {
+    font-family: 'Playfair Display', serif;
+    font-size: 72px;
+    color: var(--gold);
+    line-height: 0.5;
+    margin-bottom: 16px;
+    display: block;
+  }
+
+  .quote-text {
+    font-family: 'Playfair Display', serif;
+    font-size: 20px;
+    font-style: italic;
+    color: var(--navy);
+    line-height: 1.6;
+    margin-bottom: 20px;
+  }
+
+  .quote-attr {
+    font-size: 12px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  /* FAQ */
+  .faq {
+    background: var(--cream);
+    padding: 64px 24px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .faq h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(26px, 5vw, 38px);
+    margin-bottom: 28px;
+    color: var(--navy);
+  }
+
+  .faq-item {
+    border-bottom: 1px solid var(--border);
+    overflow: hidden;
+  }
+
+  .faq-q {
+    width: 100%;
+    background: none;
+    border: none;
+    text-align: left;
+    padding: 18px 0;
+    font-family: 'Lato', sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--navy);
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .faq-q .arrow {
+    font-size: 18px;
+    color: var(--gold);
+    transition: transform 0.3s;
+    flex-shrink: 0;
+  }
+
+  .faq-item.open .arrow { transform: rotate(180deg); }
+
+  .faq-a {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.35s ease;
+  }
+
+  .faq-item.open .faq-a { max-height: 300px; }
+
+  .faq-a p {
+    font-size: 14px;
+    color: var(--muted);
+    line-height: 1.8;
+    padding-bottom: 18px;
+    font-weight: 300;
+  }
+
+  /* CTA SECTION */
+  .cta-section {
+    background: var(--navy-deep);
+    padding: 72px 24px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .cta-section::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  }
+
+  .cta-section h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(28px, 6vw, 44px);
+    color: var(--white);
+    margin-bottom: 16px;
+    line-height: 1.2;
+  }
+
+  .cta-section h2 em { font-style: italic; color: var(--gold-light); }
+
+  .cta-section p {
+    font-size: 15px;
+    color: #7a92a8;
+    margin-bottom: 32px;
+    line-height: 1.7;
+    font-weight: 300;
+  }
+
+  /* FOOTER */
+  footer {
+    background: #0a1520;
+    padding: 32px 24px;
+    text-align: center;
+    border-top: 1px solid rgba(255,255,255,0.05);
+  }
+
+  footer p {
+    font-size: 12px;
+    color: #3d5060;
+    line-height: 1.7;
+  }
+
+  footer a { color: #4a6478; text-decoration: none; }
+
+  /* ANIMATIONS */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .reveal {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-brand">
+    <span class="nav-name">Comfort Clarity Advisors</span>
+    <span class="nav-tag">NJ HVAC Advocate</span>
+  </div>
+  <a href="#book" class="nav-cta">Book a Consult</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-eyebrow">Serving New Jersey Homeowners</div>
+  <h1>Before You Spend<br><em>$10,000 on a New<br>HVAC System —</em><br>Talk to Us First.</h1>
+  <p class="hero-sub">We're independent advisors — not installers, not sellers. We give you an honest second opinion from 18 years of hands-on HVAC experience. No commissions. No upsells. Just the truth.</p>
+  <div class="hero-buttons">
+    <a href="#book" class="btn-primary">Book Your Second Opinion →</a>
+    <a href="#services" class="btn-secondary">See What We Offer</a>
+  </div>
+  <div class="hero-trust">
+    <div class="trust-item">
+      <span class="trust-num">18</span>
+      <span class="trust-label">Years Hands-On Experience</span>
+    </div>
+    <div class="trust-item">
+      <span class="trust-num">EPA</span>
+      <span class="trust-label">Universal License Holder</span>
+    </div>
+    <div class="trust-item">
+      <span class="trust-num">100%</span>
+      <span class="trust-label">Independent — Never Commissioned</span>
+    </div>
+  </div>
+</section>
+
+<!-- PROBLEM -->
+<section class="problem reveal">
+  <div class="section-label">The Problem</div>
+  <h2>HVAC Contractors Aren't Always Working for You.</h2>
+  <p>When a technician tells you that you need a full system replacement, how do you know if that's true? Most homeowners have no way to verify what they're being told — and contractors know it.</p>
+  <p>A unit that needs a $400 repair gets replaced for $12,000. A system with years of life left gets condemned. It happens every day across New Jersey.</p>
+  <div class="problem-highlight">
+    <p>"The average homeowner spends $8,000–$18,000 on a full HVAC replacement. Many of them didn't need one."</p>
+  </div>
+  <p>You deserve an expert in your corner — someone who has nothing to gain from the repair or the replacement. That's exactly what Comfort Clarity Advisors is.</p>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="how reveal">
+  <div class="section-label">The Process</div>
+  <h2>Simple. Fast. On Your Side.</h2>
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">1</div>
+      <div class="step-body">
+        <h3>Book Your Consultation</h3>
+        <p>Choose the service that fits your situation — remote, live call, or in-home. Pick a time that works for you and pay securely online. No commitment beyond the consult.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <div class="step-body">
+        <h3>Share What You Know</h3>
+        <p>Send us the contractor's report, quotes, photos, and your system details. The more context, the sharper our analysis. We review everything before your appointment.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <div class="step-body">
+        <h3>Get the Honest Answer</h3>
+        <p>We walk you through exactly what your system needs, what it doesn't, and what we'd do if it were our home. Plain English. No upsell. No agenda.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">4</div>
+      <div class="step-body">
+        <h3>Move Forward with Confidence</h3>
+        <p>Whether that means negotiating with your contractor, finding a better one, or knowing the replacement is actually warranted — you'll have the knowledge to decide.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="services reveal" id="services">
+  <div class="section-label">Services & Pricing</div>
+  <h2>Three Ways We Can Help</h2>
+  <div class="service-cards">
+
+    <div class="service-card">
+      <div class="card-top">
+        <div class="card-name">Remote Second Opinion</div>
+        <div class="card-price">$99–$129</div>
+      </div>
+      <p class="card-desc">Already have a contractor's quote or diagnosis? Send it to us. We review and respond with a written advisory within 24 hours — no call required.</p>
+      <ul class="card-includes">
+        <li>Written analysis of contractor's diagnosis or quote</li>
+        <li>Repair vs. replace recommendation with reasoning</li>
+        <li>Red flags identified (if any)</li>
+        <li>Delivered via email within 24 hours</li>
+      </ul>
+      <a href="#book" class="card-cta">Book Remote Review</a>
+    </div>
+
+    <div class="service-card">
+      <div class="card-top">
+        <div class="card-name">Live Diagnostic Call</div>
+        <div class="card-price">$179–$229</div>
+      </div>
+      <p class="card-desc">A real-time video or phone consultation. Walk us through your system, symptoms, and quotes. We think through it with you live and give you clear direction.</p>
+      <ul class="card-includes">
+        <li>45–60 minute live consultation (video or phone)</li>
+        <li>Real-time Q&A with an 18-year HVAC veteran</li>
+        <li>Repair vs. replace decision with full explanation</li>
+        <li>Follow-up summary emailed after the call</li>
+      </ul>
+      <a href="#book" class="card-cta">Book Live Call</a>
+    </div>
+
+    <div class="service-card">
+      <div class="card-top">
+        <div class="card-name">In-Home Evaluation</div>
+        <div class="card-price">Starting at $349</div>
+      </div>
+      <p class="card-desc">We come to your NJ home and evaluate your system in person. The most thorough option — ideal for major repair or replacement decisions.</p>
+      <ul class="card-includes">
+        <li>In-person system evaluation (no repairs performed)</li>
+        <li>Full written assessment report</li>
+        <li>Remaining equipment lifespan estimate</li>
+        <li>Honest recommendation you can take to any contractor</li>
+        <li>Available throughout New Jersey</li>
+      </ul>
+      <a href="#book" class="card-cta">Book In-Home Visit</a>
+    </div>
+
+  </div>
+</section>
+
+<!-- WHY US -->
+<section class="why reveal">
+  <div class="section-label">Why Trust Us</div>
+  <h2>Experience You Can Verify.<br>Advice You Can Trust.</h2>
+  <div class="credentials">
+    <div class="cred">
+      <div class="cred-icon">🔧</div>
+      <div class="cred-body">
+        <h4>18 Years Hands-On HVAC Experience</h4>
+        <p>Residential installs, diagnostics, and troubleshooting across hundreds of NJ homes. We've seen every failure mode, every upsell tactic, and every system that didn't need replacing.</p>
+      </div>
+    </div>
+    <div class="cred">
+      <div class="cred-icon">📋</div>
+      <div class="cred-body">
+        <h4>EPA Universal License</h4>
+        <p>Certified to handle all refrigerant types under EPA Section 608. We know the code, the equipment, and what proper practice actually looks like.</p>
+      </div>
+    </div>
+    <div class="cred">
+      <div class="cred-icon">🔥</div>
+      <div class="cred-body">
+        <h4>Natural Gas & Carbon Monoxide Emergency Response</h4>
+        <p>We've responded to real gas and CO emergencies. We understand HVAC safety at a level most consultants never encounter.</p>
+      </div>
+    </div>
+    <div class="cred">
+      <div class="cred-icon">🚫</div>
+      <div class="cred-body">
+        <h4>Zero Financial Incentive to Upsell You</h4>
+        <p>We don't install. We don't sell equipment. We don't take referral fees. Our only product is honest advice — and our reputation depends on it being right.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIAL -->
+<section class="testimonial reveal">
+  <span class="quote-mark">"</span>
+  <p class="quote-text">The contractor told us we needed a full replacement — $14,500. After a call with Comfort Clarity, we found out the heat exchanger was the only issue. We paid $600 to fix it. Best $199 I've ever spent.</p>
+  <div class="quote-attr">— Homeowner, Morris County NJ</div>
+</section>
+
+<!-- FAQ -->
+<section class="faq reveal">
+  <div class="section-label">Common Questions</div>
+  <h2>What Homeowners Ask Us</h2>
+
+  <div class="faq-item">
+    <button class="faq-q">Are you a licensed HVAC contractor? <span class="arrow">▾</span></button>
+    <div class="faq-a"><p>We hold an EPA Universal refrigerant license and have 18 years of professional HVAC experience. We operate as independent advisors — we do not perform repairs, installations, or sell equipment. We provide expert advisory opinions only.</p></div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-q">What if the contractor is right and I do need a replacement? <span class="arrow">▾</span></button>
+    <div class="faq-a"><p>Then we'll tell you that — honestly. We have nothing to gain either way. If a replacement is genuinely the right call, we'll explain exactly why, what specs to ask for, and what a fair price looks like in NJ. You'll negotiate from a position of knowledge.</p></div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-q">How fast can I get an opinion? <span class="arrow">▾</span></button>
+    <div class="faq-a"><p>Remote second opinions are returned within 24 hours of receiving your documentation. Live calls are available as soon as same-day or next-day depending on scheduling. In-home visits are typically available within 2–4 days across NJ.</p></div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-q">Do you serve all of New Jersey? <span class="arrow">▾</span></button>
+    <div class="faq-a"><p>Remote and live call consultations are available statewide. In-home evaluations are available throughout New Jersey — contact us to confirm availability in your county.</p></div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-q">What do I need to send you for a remote review? <span class="arrow">▾</span></button>
+    <div class="faq-a"><p>The contractor's written diagnosis or quote, photos of your indoor and outdoor units (model/serial number labels especially), your system's age if known, and a brief description of the symptoms you've been experiencing. The more detail, the better our analysis.</p></div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section reveal" id="book">
+  <h2>Don't Sign Anything<br><em>Until You Talk to Us.</em></h2>
+  <p>For less than the cost of one hour with a contractor, get the independent expert opinion that could save you thousands.</p>
+  <a href="mailto:hello@comfortclarityadvisors.com" class="btn-primary" style="display:inline-block; margin-bottom:16px;">Book a Consultation →</a>
+  <p style="font-size:13px; color:#4a6478; margin-bottom:0;">Or email us at <a href="mailto:hello@comfortclarityadvisors.com" style="color:var(--gold); text-decoration:none;">hello@comfortclarityadvisors.com</a></p>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p><strong style="color:#4a6478;">Comfort Clarity Advisors LLC</strong> · New Jersey</p>
+  <p style="margin-top:8px;">Independent HVAC Advisory Services · EPA Universal Licensed · Serving NJ Homeowners</p>
+  <p style="margin-top:12px;">Comfort Clarity Advisors provides advisory and consulting services only. We do not perform repairs, installations, or sell HVAC equipment. Consultations do not constitute a contractor's diagnosis or licensed engineering opinion.</p>
+</footer>
+
+<script>
+  // Scroll reveal
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); } });
+  }, { threshold: 0.1 });
+  reveals.forEach(r => observer.observe(r));
+
+  // FAQ accordion
+  document.querySelectorAll('.faq-q').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const item = btn.parentElement;
+      const isOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+      if (!isOpen) item.classList.add('open');
+    });
+  });
+</script>
+
+</body>
+</html>
